@@ -15,11 +15,17 @@ A estrutura principal do seu projeto deve ser a seguinte:
 
 .
 ├── back/                 # Contém o código-fonte do backend (Spring Boot)
+
 │   └── Dockerfile        # Dockerfile para construir a imagem do backend
+
 ├── front/                # Contém o código-fonte do frontend (Angular)
+
 │   └── Dockerfile        # Dockerfile para construir a imagem do frontend
+
 ├── docker-compose.yml    # Arquivo de configuração do Docker Compose
+
 └── .env                  # Arquivo de variáveis de ambiente para o banco de dados
+
 └── README.md             # Este arquivo
 
 ⚙️ Configuração e Execução
