@@ -1,0 +1,10 @@
+CREATE TABLE evento (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR(100) NOT NULL,
+    descricao VARCHAR(1000) NOT NULL,
+    data_hora_evento DATETIME NOT NULL,
+    local VARCHAR(200) NOT NULL,
+    criado_em DATETIME NOT NULL,
+    atualizado_em DATETIME NOT NULL,
+    excluido BOOLEAN NOT NULL DEFAULT FALSE
+);
