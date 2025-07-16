@@ -1,4 +1,5 @@
 Sistema Gerenciador de Eventos
+
 Bem-vindo ao Sistema Gerenciador de Eventos (SGE)! Este projeto é uma aplicação completa para gerenciar eventos, composta por um backend em Spring Boot, um frontend web e um banco de dados MySQL, tudo orquestrado via Docker Compose.
 
 🚀 Tecnologias Utilizadas
