@@ -1,0 +1,73 @@
+<div class="event-form-container">
+  <mat-card class="event-form-card mat-elevation-z4">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>{{ isEditMode ? 'edit' : 'add_circle_outline' }}</mat-icon>
+        {{ isEditMode ? 'Editar Evento' : 'Criar Novo Evento' }}
+      </mat-card-title>
+      <mat-card-subtitle>Preencha os detalhes do evento abaixo.</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="eventoForm" (ngSubmit)="onSubmit()" class="event-form">
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Título do Evento *</mat-label>
+          <input matInput formControlName="titulo" placeholder="Ex: Palestra de Inovação">
+          <mat-icon matSuffix>title</mat-icon>
+          <mat-error *ngIf="eventoForm.get('titulo')?.hasError('required')">Título é obrigatório.</mat-error>
+          <mat-error *ngIf="eventoForm.get('titulo')?.hasError('maxlength')">Máximo 100 caracteres.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Descrição *</mat-label>
+          <textarea matInput formControlName="descricao" rows="4" placeholder="Ex: Descrição detalhada do evento."></textarea>
+          <mat-icon matSuffix>description</mat-icon>
+          <mat-error *ngIf="eventoForm.get('descricao')?.hasError('required')">Descrição é obrigatória.</mat-error>
+          <mat-error *ngIf="eventoForm.get('descricao')?.hasError('maxlength')">Máximo 1000 caracteres.</mat-error>
+        </mat-form-field>
+
+        <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="16px">
+          <mat-form-field appearance="outline" class="flex-50">
+            <mat-label>Data do Evento *</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dataHoraEvento" placeholder="DD/MM/AAAA">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="eventoForm.get('dataHoraEvento')?.hasError('required')">Data é obrigatória.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="flex-50">
+            <mat-label>Local *</mat-label>
+            <input matInput formControlName="local" placeholder="Ex: Auditório Central">
+            <mat-icon matSuffix>place</mat-icon>
+            <mat-error *ngIf="eventoForm.get('local')?.hasError('required')">Local é obrigatório.</mat-error>
+            <mat-error *ngIf="eventoForm.get('local')?.hasError('maxlength')">Máximo 200 caracteres.</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-actions">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="eventoForm.invalid || isLoading">
+            <mat-icon>save</mat-icon>
+            {{ isEditMode ? 'Salvar Alterações' : 'Criar Evento' }}
+          </button>
+
+          <button
+            mat-stroked-button
+            color="warn"
+            type="button"
+            [routerLink]="['/events']"
+            [disabled]="isLoading">
+            <mat-icon>cancel</mat-icon>
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+
+    <mat-progress-bar *ngIf="isLoading" mode="indeterminate" color="accent"></mat-progress-bar>
+  </mat-card>
+</div>
