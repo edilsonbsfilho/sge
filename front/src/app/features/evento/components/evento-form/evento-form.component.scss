@@ -1,0 +1,86 @@
+// Paleta de cores
+$primary-color: #388e3c; // Verde Material
+$accent-color: #4caf50;  // Verde claro
+$warn-color: #f44336;    // Vermelho
+
+// Bordas e sombras
+$card-radius: 12px;
+$field-radius: 8px;
+$button-radius: 6px;
+
+.event-form-container {
+  max-width: 600px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+.event-form-card {
+  padding: 24px;
+  border-radius: $card-radius;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  mat-card-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+  }
+
+  mat-card-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    color: $primary-color;
+  }
+
+  mat-card-subtitle {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+mat-form-field {
+  border-radius: $field-radius;
+
+  .mat-form-field-outline {
+    border-radius: $field-radius;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.flex-50 {
+  flex: 1;
+  min-width: 0;
+}
+
+.form-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  margin-top: 24px;
+
+  button {
+    border-radius: $button-radius;
+    min-width: 140px;
+
+    mat-icon {
+      margin-right: 4px;
+    }
+  }
+}
+
+// Melhor visual ao modo escuro se estiver usando
+@media (prefers-color-scheme: dark) {
+  .event-form-card {
+    //background-color: #1e1e1e;
+    mat-card-title {
+      color: $accent-color;
+    }
+    mat-card-subtitle {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}

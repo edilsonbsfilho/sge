@@ -1,0 +1,60 @@
+.main-toolbar {
+  background-color: #2e7d32; 
+  color: white;
+  padding: 0 20px;
+  height: 64px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.app-title {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none; 
+  font-size: 1.5em;
+  font-weight: 500;
+  padding: 0 10px; 
+  transition: color 0.3s ease; 
+
+  &:hover {
+    color: #a5d6a7; 
+  }
+
+  .app-icon {
+    margin-right: 8px;
+    font-size: 28px;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto; 
+}
+
+.toolbar-button {
+  color: white;
+  margin-left: 10px;
+  transition: background-color 0.3s ease; 
+
+  &:hover {
+    background-color: #388e3c; 
+  }
+
+  mat-icon {
+    margin-right: 5px; 
+  }
+}
+
+.content-wrapper {
+  min-height: calc(100vh - 64px - 60px); /* Altura da viewport - altura do toolbar - altura do footer */
+  padding: 20px; 
+  background-color: #f7fcf7; 
+}
+
+.app-footer {
+  background-color: #1b5e20; 
+  color: #a5d6a7; 
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
+}
