@@ -1,5 +1,7 @@
 package br.com.mirante.sge.service;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,7 @@ import br.com.mirante.sge.repository.EventoRepository;
 public class EventoService {
 
 	private static final String MSG_EVENTO_NAO_ENCONTRADO = "Evento não encontrado";
+	private final AtomicLong contador = new AtomicLong(0);
 
 	private final EventoRepository eventoRepository;
 
@@ -37,6 +40,8 @@ public class EventoService {
 		evento.setDescricao(eventoDTO.getDescricao());
 		evento.setDataHoraEvento(eventoDTO.getDataHoraEvento());
 		evento.setLocal(eventoDTO.getLocal());
+		
+		incrementarContador();
 		
 		return converterParaDTO(eventoRepository.save(evento));
 	}
@@ -79,5 +84,13 @@ public class EventoService {
 			throw new EventoException(id, MSG_EVENTO_NAO_ENCONTRADO);
 		}
 		return evento;
+	}
+	
+	private long incrementarContador() {
+		return contador.incrementAndGet();
+	}
+	
+	public long getContador() {
+		return contador.get();
 	}
 }
