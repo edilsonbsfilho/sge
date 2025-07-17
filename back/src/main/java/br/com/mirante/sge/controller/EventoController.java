@@ -28,6 +28,11 @@ public class EventoController {
 	public EventoDTO obterPorId(@PathVariable Long id) {
 		return eventoService.obterPorId(id);
 	}
+	
+	@GetMapping("/count")
+	public ResponseEntity<Long> obterQuantidadeEventos() {
+		return ResponseEntity.ok(eventoService.getContador());
+	}
 
 	@PostMapping
 	public ResponseEntity<EventoDTO> criar(@Valid @RequestBody EventoDTO eventoDTO) {
